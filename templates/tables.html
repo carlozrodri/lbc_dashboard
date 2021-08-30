@@ -1,0 +1,144 @@
+<div style="float: left" class="card">
+    <article class="media">
+      <div class="media-left">
+        <figure class="image is-64x64">
+          <img src="" alt="Image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>United Kingdom</strong> <small>@</small> 
+            <br>
+             Average price: <span></span>{{ average_uk }}
+          </p>
+        </div>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <a class="level-item" aria-label="reply">
+              <span class="icon is-small">
+                <i class="fas fa-reply" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a class="level-item" aria-label="retweet">
+              <span class="icon is-small">
+                <i class="fas fa-retweet" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a class="level-item" aria-label="like">
+              <span class="icon is-small">
+                <i class="fas fa-heart" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </article>
+  
+  <div class= "table table-dark table-striped" style="float: left;margin-right:10px">    
+    <table class="table-secondary">
+      <thead>
+        <tr>
+          <th>
+            Username
+          </th>
+          <th>
+            Price
+          </th>
+    
+          <th>
+           Max amount available
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in precio_uk %}
+        <tr>
+          <th>
+            {{ user.data.profile.username }}
+          </th>
+          <th>
+            {{ user.data.temp_price|floatformat:"2g" }}
+          </th>
+          <th>
+            {{ user.data.max_amount_available|floatformat:"2g" }}
+          </th>
+        </tr>
+        {% endfor %}
+      </tbody>
+    
+    </table>
+  </div>
+    </div>
+  </div>
+        <div style="float: right" class="card">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img src="" alt="Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Venezuela</strong> <small>@</small> 
+                  <br>
+                  Average price: {{ average_ves }}
+                </p>
+              </div>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <a class="level-item" aria-label="reply">
+                    <span class="icon is-small">
+                      <i class="fas fa-reply" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                  <a class="level-item" aria-label="retweet">
+                    <span class="icon is-small">
+                      <i class="fas fa-retweet" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                  <a class="level-item" aria-label="like">
+                    <span class="icon is-small">
+                      <i class="fas fa-heart" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </article>
+<div class= "table table-dark table-striped" style="float: right;margin-right:10px" class="table-container">    
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Username
+      </th>
+      <th>
+        Price
+      </th>
+
+      <th>
+       Max amount available
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in precio_ves %}
+    <tr>
+      <th>
+        {{ user.data.profile.username }}
+      </th>
+      <th>
+        {{  user.data.temp_price|floatformat:"2g" }}
+      </th>
+      <th>
+        {{ user.data.max_amount_available|floatformat:"2g" }}
+      </th>
+    </tr>
+    {% endfor %}
+  </tbody>
+
+</table>
+</div>
+</div>
