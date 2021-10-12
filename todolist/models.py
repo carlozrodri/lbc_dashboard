@@ -1,6 +1,6 @@
 from django.db import models
-from .services import get_price_uk
-
+from django.db.models.fields import FloatField, IntegerField, DecimalField
+from djmoney.money import Money
 
 # Create your models here.
 class Task(models.Model):
@@ -10,3 +10,13 @@ class Task(models.Model):
     def __str__(self):
         return self.title
 # Create your models here.
+class ValorIntroducido(models.Model):
+    precio = IntegerField(default=0)
+    resultado = IntegerField(default=0)
+    def __str__(self):
+        return str(self.precio)
+
+class Resultados(models.Model):
+    resultado = IntegerField(default=0)
+    def __str__(self):
+        return str(self.resultado)

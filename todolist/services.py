@@ -64,3 +64,16 @@ def get_average_price_ves2():
         sumprice = sumprice + float(x2[price]['data']['temp_price'])
         average_price = sumprice / len(x2)
     return(average_price)
+
+def get_average_any_currency(moneda):
+    x = conn.call('GET', '/sell-bitcoins-online/'+ moneda +'/transfers-with-specific-bank/.json').json()
+    x2 = x['data']['ad_list'][0:10]
+    sumprice = 0
+    for price in range(len(x2)):
+        sumprice = sumprice + float(x2[price]['data']['temp_price'])
+        average_price = sumprice / len(x2)
+    return(average_price)
+
+
+
+print(get_average_any_currency("USD"))

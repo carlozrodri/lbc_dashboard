@@ -5,9 +5,9 @@
     <div class="card-body">
 <form action="multi" method="POST">
     {% csrf_token %}
-
+    <div class="input-group mb-3" placeholder ="enter number...">
     Cantidad a enviar: <input type="text" name="num1"><br><br>
-    <input type="submit">
+    <input class="btn btn-primary btn-lg" type="submit">
 </form>
 {% block content %}
 
