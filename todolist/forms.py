@@ -22,21 +22,3 @@ class TaskForm(forms.ModelForm):
         required=False,
         widget=forms.widgets.CheckboxInput(attrs={"class": "form-check-input"}),
     )
-class PrecioForm (forms.ModelForm):
-    class Meta:
-        model = ValorIntroducido
-        fields = "__all__"
-    precio1 = forms.IntegerField(
-        widget=forms.TextInput(
-        attrs={
-            "class": "form-control form-control-lg",
-            "placeholder": 'enter number...',
-            "name": 'num1',
-        }
-        )
-    )
-
-    completed = forms.CharField(
-        required=False,
-        widget=forms.widgets.CheckboxInput(attrs={"class": "form-check-input"}),
-    )

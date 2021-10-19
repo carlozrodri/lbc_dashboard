@@ -1,9 +1,9 @@
 <div class="card">
-    <div class="card-header">
+    <div class="card">
         <h1 class="text-center">Cambio</h1>
-    </div>
-    <div class="card-body">
-<form action="multi" method="POST">
+    
+    <div style="float:left" class="card-body">
+<form method="POST">
     {% csrf_token %}
     <div class="input-group mb-3" placeholder ="enter number...">
     Cantidad a enviar: <input type="text" name="num1"><br><br>
@@ -14,5 +14,6 @@
 <h1> Result = {{result}} </h1>
 
 {% endblock %}
+</div>
 </div>
 </div>

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todolist',
     'django_bootstrap5',
-    'djmoney'
+    'djmoney',
+    
 ]
 
 MIDDLEWARE = [
@@ -115,6 +116,17 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Celery Configuration Options
+CELERY_TIMEZONE = "Europe/London"
+CELERY_TASK_TRACK_STARTED = True
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
 
 
 # Static files (CSS, JavaScript, Images)

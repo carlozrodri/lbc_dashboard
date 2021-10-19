@@ -8,9 +8,33 @@
       <div class="media-content">
         <div class="content">
           <p>
-            <strong>United Kingdom</strong> <small>@</small> 
+            <strong>United Kingdom</strong> 
+            <div class="container">
+              <div class="currency">
+                 <select class="form-control" id="moneda">
+                   
+                  <option value="AED">AED</option>
+                  <option value="ARS">ARS</option>
+                  <option value="AUD">AUD</option>
+                  <option value="BGN">BGN</option>
+                  <option value="BRL">BRL</option>
+                  <option value="SEK">SEK</option>
+                  <option value="SGD">SGD</option>
+                  <option value="THB">THB</option>
+                  <option value="TRY">TRY</option>
+                  <option value="TWD">TWD</option>
+                  <option value="UAH">UAH</option>
+                  <option value="GBP" selected>GBP</option>
+                  <option value="UYU">UYU</option>
+                  <option value="VND">VND</option>
+                  <option value="ZAR">ZAR</option>
+                </select>
+            <small>@</small> 
             <br>
-             Average price: <span></span>{{ average_uk }}
+             Average price: <span></span>
+             <div id="valor_uk">
+             {{ average_uk }}
+             </div>
           </p>
         </div>
         <nav class="level is-mobile">
@@ -35,7 +59,7 @@
       </div>
     </article>
   
-  <div class= "table table-dark table-striped" style="float: left;margin-right:10px">    
+  <div class= "table table-dark table-striped" style="float: right;margin-right:10px">    
     <table class="table-secondary">
       <thead>
         <tr>
@@ -71,74 +95,77 @@
   </div>
     </div>
   </div>
-        <div style="float: right" class="card">
-          <article class="media">
-            <div class="media-left">
-              <figure class="image is-64x64">
-                <img src="" alt="Image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>Venezuela</strong> <small>@</small> 
-                  <br>
-                  Average price: {{ average_ves }}
-                </p>
-              </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  <a class="level-item" aria-label="reply">
-                    <span class="icon is-small">
-                      <i class="fas fa-reply" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="retweet">
-                    <span class="icon is-small">
-                      <i class="fas fa-retweet" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="like">
-                    <span class="icon is-small">
-                      <i class="fas fa-heart" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                </div>
-              </nav>
-            </div>
-          </article>
-<div class= "table table-dark table-striped" style="float: right;margin-right:10px" class="table-container">    
-<table class="table">
-  <thead>
-    <tr>
-      <th>
-        Username
-      </th>
-      <th>
-        Price
-      </th>
-
-      <th>
-       Max amount available
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for user in precio_ves %}
-    <tr>
-      <th>
-        {{ user.data.profile.username }}
-      </th>
-      <th>
-        {{  user.data.temp_price|floatformat:"2g" }}
-      </th>
-      <th>
-        {{ user.data.max_amount_available|floatformat:"2g" }}
-      </th>
-    </tr>
-    {% endfor %}
-  </tbody>
-
-</table>
-</div>
-</div>
+<!-- Second tablet -->
+  <div style="float: right" class="card">
+    <article class="media">
+      <div class="media-right">
+        <figure class="image is-64x64">
+          <img src="" alt="Image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>Venezuela</strong> <small>@</small> 
+            <br>
+             Average price: <span></span>{{ average_ves }}
+          </p>
+        </div>
+        <nav class="level is-mobile">
+          <div class="level-right">
+            <a class="level-item" aria-label="reply">
+              <span class="icon is-small">
+                <i class="fas fa-reply" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a class="level-item" aria-label="retweet">
+              <span class="icon is-small">
+                <i class="fas fa-retweet" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a class="level-item" aria-label="like">
+              <span class="icon is-small">
+                <i class="fas fa-heart" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </article>
+  
+  <div class= "table table-dark table-striped" style="float: right;margin-right:10px">    
+    <table class="table-secondary">
+      <thead>
+        <tr>
+          <th>
+            Username
+          </th>
+          <th>
+            Price
+          </th>
+    
+          <th>
+           Max amount available
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in precio_ves %}
+        <tr>
+          <th>
+            {{ user.data.profile.username }}
+          </th>
+          <th>
+            {{ user.data.temp_price|floatformat:"2g" }}
+          </th>
+          <th>
+            {{ user.data.max_amount_available|floatformat:"2g" }}
+          </th>
+        </tr>
+        {% endfor %}
+      </tbody>
+    
+    </table>
+  </div>
+    </div>
+  </div>

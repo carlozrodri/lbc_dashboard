@@ -14,7 +14,7 @@ def get_price_uk():
     return x2
 
 def get_price_ves():
-    x = conn.call('GET', '/sell-bitcoins-online/VES/transfers-with-specific-bank/.json').json()
+    x = conn.call('GET', '/sell-bitcoins-online/VED/transfers-with-specific-bank/.json').json()
     x2 = x['data']['ad_list'][0:20]   
     return x2
 
@@ -29,7 +29,7 @@ def get_average_price_uk():
     return("{:,.2f}".format(average_price))
 
 def get_average_price_ves():
-    x = conn.call('GET', '/sell-bitcoins-online/VES/transfers-with-specific-bank/.json').json()
+    x = conn.call('GET', '/sell-bitcoins-online/VED/transfers-with-specific-bank/.json').json()
     x2 = x['data']['ad_list'][0:10]
     sumprice = 0
     for price in range(len(x2)):
@@ -57,7 +57,7 @@ def get_average_price_uk2():
     return(average_price)
 
 def get_average_price_ves2():
-    x = conn.call('GET', '/sell-bitcoins-online/VES/transfers-with-specific-bank/.json').json()
+    x = conn.call('GET', '/sell-bitcoins-online/VED/transfers-with-specific-bank/.json').json()
     x2 = x['data']['ad_list'][0:10]
     sumprice = 0
     for price in range(len(x2)):
@@ -76,4 +76,17 @@ def get_average_any_currency(moneda):
 
 
 
-print(get_average_any_currency("USD"))
+#print(get_average_any_currency("USD"))
+
+def amount_to_get(amount):
+    amount_to_send = float(amount)
+    btcpriceuk = get_average_price_uk2()
+    btcpriceves = get_average_price_ves2()
+    cantidad_de_btc = amount_to_send / float(btcpriceuk)
+    btcpriceresult = float(btcpriceves) * cantidad_de_btc
+
+    res = float(btcpriceresult)
+    res2 = "{:,.2f}".format(res)
+    return(res)
+
+# print(amount_to_get('155'))

@@ -1,6 +1,8 @@
 body{
     background-color: #87af90;
 }
-.container{
-    max-width: 600px;
+#div1 {
+    display: block;
+    margin: auto;
+    width: anything under 100% 
 }

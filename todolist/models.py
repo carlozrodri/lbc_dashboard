@@ -11,7 +11,7 @@ class Task(models.Model):
         return self.title
 # Create your models here.
 class ValorIntroducido(models.Model):
-    precio = IntegerField(default=0)
+    precio = FloatField(default=0)
     resultado = IntegerField(default=0)
     def __str__(self):
         return str(self.precio)
@@ -20,3 +20,14 @@ class Resultados(models.Model):
     resultado = IntegerField(default=0)
     def __str__(self):
         return str(self.resultado)
+
+class Paises(models.Model):
+    country = (
+        ('ves', 'Venezuela'),
+        ('usd', 'United states'),
+        ('gbp', 'United kingdom'),
+    )
+    pais = models.CharField(max_length=3, choices=country, primary_key=True)
+
+    def __str__(self):
+        return self.name
