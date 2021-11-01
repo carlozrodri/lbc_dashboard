@@ -7,8 +7,12 @@ const amount1 = document.getElementById("amount-one");
 const amount2 = document.getElementById("amount-two");
 const swap = document.getElementById("swap");
 const theRate = document.getElementById("rate");
-const valoruk = document.getElementById("valor_uk")
+const valoruk = document.getElementById("valor_uk");
 console.log(valoruk);
+const probando = {{ average_uk|safe }};
+
+var context = JSON.parse("{{ average_uk|escapejs }}");
+console.log(context);
 
 // Fetch exchange rate from the API
 function calculate() {

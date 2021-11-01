@@ -10,9 +10,10 @@
     <input class="btn btn-primary btn-lg" type="submit">
 </form>
 {% block content %}
+{% if result %}
+<h1>La cantidad de {{ inputvalue }} serian equivalente a {{result}} </h1>
 
-<h1> Result = {{result}} </h1>
-
+{% endif %}
 {% endblock %}
 </div>
 </div>

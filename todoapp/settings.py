@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todolist',
     'django_bootstrap5',
-    'djmoney',
     
 ]
 

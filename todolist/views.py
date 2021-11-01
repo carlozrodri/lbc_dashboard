@@ -7,6 +7,7 @@ from django.views.generic.edit import FormView,UpdateView,CreateView,UpdateView
 from .models import Task, ValorIntroducido, Resultados
 from django.urls import reverse_lazy
 from .services import get_price_uk, get_price_ves, get_average_price_uk, get_average_price_ves, get_average_price_uk2, get_average_price_ves2, amount_to_get
+import json
 
 # Create your views here.
    
@@ -25,13 +26,18 @@ def index(request):
         p.save()
         #cantidad a mandar
         res = float(amount_to_get(num1))
-        res2 = "{:,.2f}".format(res)
+        
         modelo = Resultados(resultado=res)
         modelo.save()
+        res2 = Resultados.objects.last()
+        res3 = "{:,.2f}".format(res)
+        num1_conte = ValorIntroducido.objects.last()
+
         context = {
         "task_form": form, 
         "tasks": tasks, 
-        "result" : res2,
+        "result" : res3,
+        'inputvalue' : num1_conte,
     }
         return render(request,"index.html", context)
     else:
@@ -39,7 +45,7 @@ def index(request):
             "task_form": form, 
             "tasks": tasks,
             "precio_uk": get_price_uk(),
-            "average_uk": get_average_price_uk(),
+            "average_uk": json.dumps(get_average_price_uk()),
             "precio_ves": get_price_ves(),
             "average_ves": get_average_price_ves(),
 

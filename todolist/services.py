@@ -1,8 +1,4 @@
-import os
-import requests
 from lbcapi import api
-import pandas as pd
-import json
 
 hmac_key = "a44c1e3130b8416f08844cd0f4027aff"
 hmac_secret = "973bf02eedfdb3c870f1456697e7f9bfa4ed1e7aa1e27c4a06771cf946d1d0d5"
@@ -80,8 +76,8 @@ def get_average_any_currency(moneda):
 
 def amount_to_get(amount):
     amount_to_send = float(amount)
-    btcpriceuk = get_average_price_uk2()
-    btcpriceves = get_average_price_ves2()
+    btcpriceuk = 46000
+    btcpriceves = 273000
     cantidad_de_btc = amount_to_send / float(btcpriceuk)
     btcpriceresult = float(btcpriceves) * cantidad_de_btc
 
