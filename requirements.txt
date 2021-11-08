@@ -4,3 +4,4 @@ lbcapi==1.0.3
 celery==4.4.7
 django_bootstrap5==21.1
 redis
+whitenoise
