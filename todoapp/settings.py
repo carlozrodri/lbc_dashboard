@@ -23,12 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#uoeb$gsaxm4+%0*#wgf9(_0496i=$$pd4%ppl(wo2@9(e%j@&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['','localhost','127.0.0.1']
 CELERY_BROKER_URL = 'redis://localhost:6379'
 
-
+STATIC_URL = '/static/'
+STATIC_ROOT = "/var/www/example.com/static/"
 # Application definition
 
 INSTALLED_APPS = [
