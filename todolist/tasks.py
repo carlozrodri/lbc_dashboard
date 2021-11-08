@@ -37,15 +37,3 @@ def get_price_uk_tasks():
         username_model.save()
         print(usernames)
 
-'''
-def ger_data():
-
-    x = conn.call('GET', '/sell-bitcoins-online/VED/transfers-with-specific-bank/.json').json()
-    data = x['data']['ad_list'][0:20]
-    usernames = []
-    for price in range(len(data)):
-        usernames = data[price]['data']['profile']['username']
-        username_model = Listas(username=usernames)
-        username_model.save()
-        print(usernames)
-'''
