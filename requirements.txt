@@ -1,4 +1,4 @@
 channels==3.0.4
-crypto==1.4.1
 Django==3.2.8
 lbcapi==1.0.3
+celery==4.4.7

@@ -21,6 +21,14 @@ class Resultados(models.Model):
     def __str__(self):
         return str(self.resultado)
 
+class Listas(models.Model):
+    username = models.CharField(max_length=100)
+    temp_price = models.CharField(max_length=100)
+    max_amount_available = models.FloatField(default=0)
+    def __str__(self):
+        return str(self.username)
+
+
 class Bitcoinpriceuk(models.Model):
     priceuk = models.FloatField(default=0)
     def __str__(self):
