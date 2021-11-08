@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#uoeb$gsaxm4+%0*#wgf9(_0496i=$$pd4%ppl(wo2@9(e%j@&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['','localhost','127.0.0.1','77.103.46.247']
+ALLOWED_HOSTS = ['0.0.0.0','','localhost','127.0.0.1','77.103.46.247','https://todoaap1.herokuapp.com/']
 CELERY_BROKER_URL = 'redis://localhost:6379'
 
 STATIC_URL = '/static/'
