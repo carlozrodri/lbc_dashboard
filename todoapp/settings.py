@@ -29,7 +29,8 @@ ALLOWED_HOSTS = ['','localhost','127.0.0.1']
 CELERY_BROKER_URL = 'redis://localhost:6379'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "/var/www/example.com/static/"
+STATIC_ROOT = "/static/public/"
+
 # Application definition
 
 INSTALLED_APPS = [
