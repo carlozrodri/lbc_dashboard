@@ -7,7 +7,8 @@ from django.views.generic.edit import FormView,UpdateView,CreateView,UpdateView
 from .models import Task, ValorIntroducido, Resultados
 from django.urls import reverse_lazy
 from .services import get_price_uk, get_price_ves, get_average_price_uk, get_average_price_ves, get_average_price_uk2, get_average_price_ves2, amount_to_get
-import json
+from .models import Bitcoinpriceves, Bitcoinpriceuk
+
 
 # Create your views here.
    
@@ -27,7 +28,7 @@ def index(request):
         #cantidad a mandar
         res = float(amount_to_get(num1))
         
-        modelo = Resultados(resultado=res)
+        modelo = ValorIntroducido(resultado=res)
         modelo.save()
         res2 = Resultados.objects.last()
         res3 = "{:,.2f}".format(res)
@@ -45,10 +46,11 @@ def index(request):
             "task_form": form, 
             "tasks": tasks,
             "precio_uk": get_price_uk(),
-            "average_uk": json.dumps(get_average_price_uk()),
+            "average_uk": str(Bitcoinpriceuk.objects.last()),
             "precio_ves": get_price_ves(),
-            "average_ves": get_average_price_ves(),
-
+            "average_ves": str(Bitcoinpriceves.objects.last()),
+            "average_uk_js": str(Bitcoinpriceuk.objects.last()),
+            "average_ves_js": str(Bitcoinpriceves.objects.last()),
         }
         return render(request, "index.html", context)
 

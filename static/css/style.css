@@ -1,8 +1,19 @@
-body{
-    background-color: #87af90;
+
+body {
+  margin: auto;
+  height: auto;
+  display: table;
+  place-items:flex-start;
+  background: #238;
+  overflow:auto;
 }
-#div1 {
-    display: block;
-    margin: auto;
-    width: anything under 100% 
+
+
+.cards {
+  display:flex;
+}
+.card {
+background: beige;
+border-radius: 1.4rem;
+padding: 1.2rem;
 }

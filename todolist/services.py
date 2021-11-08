@@ -26,7 +26,7 @@ def get_average_price_uk():
 
 def get_average_price_ves():
     x = conn.call('GET', '/sell-bitcoins-online/VED/transfers-with-specific-bank/.json').json()
-    x2 = x['data']['ad_list'][0:10]
+    x2 = x['data']['ad_list'][6:7]
     sumprice = 0
     for price in range(len(x2)):
         sumprice = sumprice + float(x2[price]['data']['temp_price'])
@@ -45,7 +45,7 @@ def getAccountInfo(username):
 
 def get_average_price_uk2():
     x = conn.call('GET', '/buy-bitcoins-online/GBP/national-bank-transfer/.json').json()
-    x2 = x['data']['ad_list'][0:10]
+    x2 = x['data']['ad_list'][0:2]
     sumprice = 0
     for price in range(len(x2)):
         sumprice = sumprice + float(x2[price]['data']['temp_price'])
@@ -54,7 +54,7 @@ def get_average_price_uk2():
 
 def get_average_price_ves2():
     x = conn.call('GET', '/sell-bitcoins-online/VED/transfers-with-specific-bank/.json').json()
-    x2 = x['data']['ad_list'][0:10]
+    x2 = x['data']['ad_list'][6:7]
     sumprice = 0
     for price in range(len(x2)):
         sumprice = sumprice + float(x2[price]['data']['temp_price'])
@@ -71,18 +71,22 @@ def get_average_any_currency(moneda):
     return(average_price)
 
 
-
+from .models import Bitcoinpriceves, Bitcoinpriceuk
 #print(get_average_any_currency("USD"))
 
 def amount_to_get(amount):
     amount_to_send = float(amount)
-    btcpriceuk = 46000
-    btcpriceves = 273000
+    btcpriceuk = str(Bitcoinpriceuk.objects.last())
+    btcpriceves = str(Bitcoinpriceves.objects.last())
     cantidad_de_btc = amount_to_send / float(btcpriceuk)
     btcpriceresult = float(btcpriceves) * cantidad_de_btc
-
     res = float(btcpriceresult)
     res2 = "{:,.2f}".format(res)
     return(res)
-
-# print(amount_to_get('155'))
+btcpriceuk = Bitcoinpriceuk.objects.last()
+btcpriceves = Bitcoinpriceves.objects.last()
+print(type(btcpriceuk))
+xs = str(btcpriceves)
+xca = float(xs)
+print(xca)
+print(type(xca))

@@ -21,6 +21,16 @@ class Resultados(models.Model):
     def __str__(self):
         return str(self.resultado)
 
+class Bitcoinpriceuk(models.Model):
+    priceuk = models.FloatField(default=0)
+    def __str__(self):
+        return str(self.priceuk)
+
+class Bitcoinpriceves(models.Model):
+    priceves = models.FloatField(default=0)
+    def __str__(self):
+        return str(self.priceves)
+
 class Paises(models.Model):
     country = (
         ('ves', 'Venezuela'),
