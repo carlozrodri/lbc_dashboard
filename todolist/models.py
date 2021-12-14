@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models.fields import FloatField, IntegerField, DecimalField
-from djmoney.money import Money
+
 
 # Create your models here.
 class Task(models.Model):
@@ -17,9 +17,27 @@ class ValorIntroducido(models.Model):
         return str(self.precio)
 
 class Resultados(models.Model):
-    resultado = IntegerField(default=0)
+    resultado = FloatField(default=0)
     def __str__(self):
         return str(self.resultado)
+
+class Listas(models.Model):
+    username = models.CharField(max_length=100)
+    temp_price = models.CharField(max_length=100)
+    max_amount_available = models.FloatField(default=0)
+    def __str__(self):
+        return str(self.username)
+
+
+class Bitcoinpriceuk(models.Model):
+    priceuk = models.FloatField(default=0)
+    def __str__(self):
+        return str(self.priceuk)
+
+class Bitcoinpriceves(models.Model):
+    priceves = models.FloatField(default=0)
+    def __str__(self):
+        return str(self.priceves)
 
 class Paises(models.Model):
     country = (

@@ -32,9 +32,9 @@
             <small>@</small> 
             <br>
              Average price: <span></span>
-             <div id="valor_uk">
              {{ average_uk }}
-             </div>
+              {{ average_uk_js|json_script:"average_uk_js" }}
+
           </p>
         </div>
         <nav class="level is-mobile">
@@ -109,6 +109,8 @@
             <strong>Venezuela</strong> <small>@</small> 
             <br>
              Average price: <span></span>{{ average_ves }}
+             {{ average_ves_js|json_script:"average_ves_js" }}
+
           </p>
         </div>
         <nav class="level is-mobile">

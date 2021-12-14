@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card" style="float">
     <div class="card">
         <h1 class="text-center">Cambio</h1>
     
-    <div style="float:left" class="card-body">
+    <div class="card-body">
 <form method="POST">
     {% csrf_token %}
     <div class="input-group mb-3" placeholder ="enter number...">
@@ -10,9 +10,10 @@
     <input class="btn btn-primary btn-lg" type="submit">
 </form>
 {% block content %}
+{% if result %}
+<h1>La cantidad de {{ inputvalue }} serian equivalente a {{result}} </h1>
 
-<h1> Result = {{result}} </h1>
-
+{% endif %}
 {% endblock %}
 </div>
 </div>
